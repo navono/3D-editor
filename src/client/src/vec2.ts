@@ -1,4 +1,4 @@
 type vec2 = {
-    x: number
-    y: number
-}
+  x: number;
+  y: number;
+};
