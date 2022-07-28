@@ -1,25 +1,28 @@
 import { useRouter } from 'next/router';
 import { setState } from '@/helpers/store';
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+
+import '@/styles/index.css';
 import Header from '@/config';
 import Dom from '@/components/layout/dom';
-import '@/styles/index.css';
-import dynamic from 'next/dynamic';
+import { addTweakpane } from '@/components/layout/panel';
 
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
   ssr: true,
 });
 
 function App({ Component, pageProps = { title: 'index' } }) {
-  const router = useRouter();
+  // addTweakpane();
 
+  const router = useRouter();
   useEffect(() => {
     setState({ router });
   }, [router]);
 
   return (
     <>
-      <Header title={pageProps.title} />
+      {/* <Header title={pageProps.title} /> */}
       <Dom>
         <Component {...pageProps} />
       </Dom>
